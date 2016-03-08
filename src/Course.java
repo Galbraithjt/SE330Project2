@@ -87,34 +87,12 @@ public class Course
         if (theLink.enrolledStudents > 30)
         {
             theLink.enrolledStudents = 30;
+
+
         }
 
         return theLink;
     }
-
-    /*public int set (String className)
-    {
-        Link currentLink = firstLink;
-
-        while (currentLink.className != className)
-        {
-            currentLink = currentLink.next;
-        }
-
-        while (currentLink.className == className)
-        {
-            if (currentLink.enrolledStudents < 30)
-            {
-                currentLink.enrolledStudents++;
-            }
-
-            if (currentLink.enrolledStudents > 30)
-            {
-                currentLink.enrolledStudents = 30;
-            }
-        }
-        return currentLink.enrolledStudents;
-    }*/
 
 
     public Main removeLink(String className)

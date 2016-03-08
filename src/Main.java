@@ -54,7 +54,7 @@ public class Main
         // Insert Link and add a reference to the node Link added just prior
         // to the field next
 
-        offeredCourse.insertFirstLink("ENG101", 30);
+        offeredCourse.insertFirstLink("ENG101", enrolledStudents);
         offeredCourse.insertFirstLink("ENG102", enrolledStudents);
         offeredCourse.insertFirstLink("SOC201", enrolledStudents);
         offeredCourse.insertFirstLink("SCE101", enrolledStudents);
