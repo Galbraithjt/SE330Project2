@@ -102,7 +102,7 @@ public class Main
 
             schedule.insertFirstClass(stu.getFName(), stu.getMInit(), stu.getLName(), stu.getNum(), stu.choice);
             stu.studentInfo();
-            //waitL.setSchedule(stu.getFName(), stu.getMInit(), stu.getLName(), stu.getNum());
+
         }
         else
         {
