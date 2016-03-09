@@ -5,6 +5,21 @@ public class Course
 { // Start Class
     // Reference to first Link in list
     // The last Link added to the LinkList
+    WaitList wList = new WaitList();
+    public String lName;
+    public String fName;
+    public String mI;
+    public String pNumber;
+
+    public Course next;
+
+    public Course(String lName, String fName, String mI, String pNumber)
+    {
+        this.lName = lName;
+        this.fName = fName;
+        this.mI = mI;
+        this.pNumber = pNumber;
+    }
 
     public Main firstLink;
 
@@ -50,7 +65,7 @@ public class Course
         }
     }
 
-    public Main find (String className)
+    public Main find (String className, String lName, String fName, String mI, String pNumber)
     {
         Main theLink = firstLink;
 
@@ -84,11 +99,11 @@ public class Course
             theLink.enrolledStudents++;
         }
 
-        if (theLink.enrolledStudents > 30)
+        if (theLink.enrolledStudents >= 30)
         {
             theLink.enrolledStudents = 30;
-
-
+            wList.insertNewWait(lName, fName, mI, pNumber);
+            wList.display();
         }
 
         return theLink;
@@ -103,7 +118,7 @@ public class Course
 
         // Keep searching as long as a match isn't made
 
-        while (currentLink.className != className)
+        while (!currentLink.className.equals(className))
         {
             // Check if at the last Link in the LinkList
 

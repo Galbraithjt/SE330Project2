@@ -33,8 +33,7 @@ public class Main
         Schedule schedule = new Schedule();
         int classChoice;
         String classNameChoice;
-        int enrolledStudents = 0;
-        int choice = 0;
+        int choice;
 
         System.out.println("Please Enter Your First Name.");
         stu.fName = ui.nextLine();
@@ -49,21 +48,22 @@ public class Main
         //in.nextLine();
         stu.pNumber = ui.nextLine();
 
+
         Course offeredCourse = new Course();
 
         // Insert Link and add a reference to the node Link added just prior
         // to the field next
 
-        offeredCourse.insertFirstLink("ENG101", enrolledStudents);
-        offeredCourse.insertFirstLink("ENG102", enrolledStudents);
-        offeredCourse.insertFirstLink("SOC201", enrolledStudents);
-        offeredCourse.insertFirstLink("SCE101", enrolledStudents);
-        offeredCourse.insertFirstLink("PHY201", enrolledStudents);
-        offeredCourse.insertFirstLink("SE330", enrolledStudents);
-        offeredCourse.insertFirstLink("SE240", enrolledStudents);
-        offeredCourse.insertFirstLink("SE410", enrolledStudents);
-        offeredCourse.insertFirstLink("SE250", enrolledStudents);
-        offeredCourse.insertFirstLink("HUM401", enrolledStudents);
+        offeredCourse.insertFirstLink("ENG101", (int )(Math.random() * 30 + 1));
+        offeredCourse.insertFirstLink("ENG102", (int )(Math.random() * 30 + 1));
+        offeredCourse.insertFirstLink("SOC201", (int )(Math.random() * 30 + 1));
+        offeredCourse.insertFirstLink("SCE101", (int )(Math.random() * 30 + 1));
+        offeredCourse.insertFirstLink("PHY201", (int )(Math.random() * 30 + 1));
+        offeredCourse.insertFirstLink("SE330", (int )(Math.random() * 30 + 1));
+        offeredCourse.insertFirstLink("SE240", (int )(Math.random() * 30 + 1));
+        offeredCourse.insertFirstLink("SE410", (int )(Math.random() * 30 + 1));
+        offeredCourse.insertFirstLink("SE250", (int )(Math.random() * 30 + 1));
+        offeredCourse.insertFirstLink("HUM401", (int )(Math.random() * 30 + 1));
 
         offeredCourse.display();
         System.out.println("Enter the number of classes you would like to register for'Must be less than 4 if" +
@@ -81,10 +81,14 @@ public class Main
         {
             System.out.println("Enter the course name you would like to register for:");
             classNameChoice = ui.nextLine();
-            offeredCourse.find(classNameChoice);
+            String lName = stu.getLName();
+            String fName = stu.getFName();
+            String mI = stu.getMInit();
+            String pNumber = stu.getNum();
+            offeredCourse.find(classNameChoice, lName, fName, mI, pNumber);
         }
 
-        stu.confirmation ();
+        choice = stu.confirmation();
         if(choice == 1)
         {
             System.out.println("Sorry For The Inconvenience,\nWe Hope You Finish The Application Soon.");
