@@ -1,6 +1,8 @@
 /*
  * Created by Joshua on 2/23/16.
  */
+
+import java.io.*;
 import java.util.Scanner;
 
 public class Main
@@ -111,7 +113,37 @@ public class Main
             System.exit(0);
         }
 
+        String fileName = "SLN.txt";
+        InputStream fIn;
+        BufferedReader buffer = new BufferedReader(
+                new InputStreamReader(System.in));
+        try {
+            if (args.length == 0) {
+                //System.out.print("Enter a file name: ");  // get file to read from
+                //fileName = buffer.readLine();
+                fIn = new FileInputStream(fileName);
+            }
+            else {
+                fIn = new FileInputStream(args[0]);
+                fileName = args[0];
+            }
+            WordsBST wordTree = new WordsBST();    // create a new tree
+            // Phase 1 - parse the file for all words and add the words to this tree
+            wordTree.parse(fIn);
+            // Phase 2 - display the built tree
+            if (!wordTree.isEmpty()) {
+                // System.out.print(wordTree);
+                wordTree.displayTree(fileName);
+            }
+
+            fIn.close();
+        } catch(IOException io) {
+            System.err.println("Cannot open " + fileName);
+        }
+
         System.out.println("Now That Your Are Set, We Look Forward To Furthering Your Career At Our Campus. See You Soon! :)");
+
+
 
         offeredCourse.display();
     }//end Main

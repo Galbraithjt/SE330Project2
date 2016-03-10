@@ -7,18 +7,19 @@ public class Course
     // The last Link added to the LinkList
     WaitList wList = new WaitList();
     public String lName;
-    public String fName;
+
+   /* public String fName;
     public String mI;
-    public String pNumber;
+    public String pNumber;*/
 
     public Course next;
 
-    public Course(String lName, String fName, String mI, String pNumber)
+    public Course(String lName)
     {
         this.lName = lName;
-        this.fName = fName;
+        /*this.fName = fName;
         this.mI = mI;
-        this.pNumber = pNumber;
+        this.pNumber = pNumber;*/
     }
 
     public Main firstLink;
@@ -102,7 +103,7 @@ public class Course
         if (theLink.enrolledStudents >= 30)
         {
             theLink.enrolledStudents = 30;
-            wList.insertNewWait(lName, fName, mI, pNumber);
+            wList.sendLName(lName);
             wList.display();
         }
 
